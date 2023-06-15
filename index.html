@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./asset/main.css">
+    <link rel="stylesheet" href="./asset/fontawesome-free-6.3.0-web/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="heading">
+            <div class="heading__status">Now playing:</div>
+            <header class="heading__music-name">Không Thể Say</header>
+        </div>
+        <img class="music-img" src="./asset/imgs/ht2.jpg" alt="">
+        <div class="control">
+            <button class="repeat-btn"><i class="fa-solid fa-rotate-right"></i></button>
+            <button class="back-btn"><i class="fa-solid fa-backward-step"></i></button>
+             <button class="play-btn"> 
+                <div class="play-icon-container">
+                    <i class="fa-solid fa-play"></i>
+                </div>
+            </button>
+            <button class="next-btn"><i class="fa-solid fa-forward-step"></i></button>
+            <button class="suffle"><i class="fa-solid fa-shuffle"></i></button> 
+                
+        </div>
+
+        <div class="time-line"></div>
+
+        <div class="music-list-container">
+            <ul class="music-list">
+                <li class="music-item">
+                    <div class="music-item__container">
+                        <img src="./asset/imgs/ht2.jpg" alt="" class="music-item__container-img">
+                        <div class="music-item__container-info">
+                            <div class="music-item__container-info-name">Không thể say</div>
+                            <div class="music-item__container-info-desc">HIEUTHUHAI</div>
+                        </div>
+                        <div class="music-item__container-nav-icon">
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </div>
+                    </div>
+                </li>
+                <li class="music-item">
+                    <div class="music-item__container">
+                        <img src="./asset/imgs/thang4loinoidoicuaem.webp" alt="" class="music-item__container-img">
+                        <div class="music-item__container-info">
+                            <div class="music-item__container-info-name">Tháng tư là lời nói dối của em</div>
+                            <div class="music-item__container-info-desc">Hà Anh Tuấn</div>
+                        </div>
+                        <div class="music-item__container-nav-icon">
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </div>
+                    </div>
+                </li>
+                <li class="music-item">
+                    <div class="music-item__container">
+                        <img src="./asset/imgs/motbuocyeuvandamdau.png" alt="" class="music-item__container-img">
+                        <div class="music-item__container-info">
+                            <div class="music-item__container-info-name">Một bước yêu vạn dặm đau</div>
+                            <div class="music-item__container-info-desc">Mr. Siro</div>
+                        </div>
+                        <div class="music-item__container-nav-icon">
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    
+    </div>
+
+   
+    
+</body>
+</html>
