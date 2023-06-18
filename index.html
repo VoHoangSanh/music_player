@@ -10,69 +10,192 @@
     <link rel="stylesheet" href="./asset/fontawesome-free-6.3.0-web/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <div class="heading">
-            <div class="heading__status">Now playing:</div>
-            <header class="heading__music-name">Không Thể Say</header>
-        </div>
-        <img class="music-img" src="./asset/imgs/ht2.jpg" alt="">
-        <div class="control">
-            <button class="repeat-btn"><i class="fa-solid fa-rotate-right"></i></button>
-            <button class="back-btn"><i class="fa-solid fa-backward-step"></i></button>
-             <button class="play-btn"> 
-                <div class="play-icon-container">
-                    <i class="fa-solid fa-play"></i>
-                </div>
-            </button>
-            <button class="next-btn"><i class="fa-solid fa-forward-step"></i></button>
-            <button class="suffle"><i class="fa-solid fa-shuffle"></i></button> 
-                
-        </div>
-
-        <div class="time-line"></div>
-
-        <div class="music-list-container">
-            <ul class="music-list">
-                <li class="music-item">
-                    <div class="music-item__container">
-                        <img src="./asset/imgs/ht2.jpg" alt="" class="music-item__container-img">
-                        <div class="music-item__container-info">
-                            <div class="music-item__container-info-name">Không thể say</div>
-                            <div class="music-item__container-info-desc">HIEUTHUHAI</div>
-                        </div>
-                        <div class="music-item__container-nav-icon">
-                            <i class="fa-solid fa-ellipsis"></i>
-                        </div>
+    <div class="container ">
+        <div class="dashboard">
+            <div class="heading">
+                <div class="heading__status">Now playing:</div>
+                <header class="heading__music-name">Không Thể Say</header>
+            </div>
+            <img class="music-img" src="./asset/imgs/song1.jpg" alt="">
+            <div class="control">
+                <button class="repeat-btn "><i class="fa-solid fa-rotate-right"></i></button>
+                <button class="back-btn"><i class="fa-solid fa-backward-step"></i></button>
+                 <button class="play-btn"> 
+                    <div class="play-icon-container">
+                        <i class="fa-solid fa-play play-btn-icon"></i>
+                        <!-- <i class="fa-solid fa-pause pause-btn"></i> -->
                     </div>
-                </li>
-                <li class="music-item">
-                    <div class="music-item__container">
-                        <img src="./asset/imgs/thang4loinoidoicuaem.webp" alt="" class="music-item__container-img">
-                        <div class="music-item__container-info">
-                            <div class="music-item__container-info-name">Tháng tư là lời nói dối của em</div>
-                            <div class="music-item__container-info-desc">Hà Anh Tuấn</div>
-                        </div>
-                        <div class="music-item__container-nav-icon">
-                            <i class="fa-solid fa-ellipsis"></i>
-                        </div>
-                    </div>
-                </li>
-                <li class="music-item">
-                    <div class="music-item__container">
-                        <img src="./asset/imgs/motbuocyeuvandamdau.png" alt="" class="music-item__container-img">
-                        <div class="music-item__container-info">
-                            <div class="music-item__container-info-name">Một bước yêu vạn dặm đau</div>
-                            <div class="music-item__container-info-desc">Mr. Siro</div>
-                        </div>
-                        <div class="music-item__container-nav-icon">
-                            <i class="fa-solid fa-ellipsis"></i>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
+                </button>
+                <button class="next-btn"><i class="fa-solid fa-forward-step"></i></button>
+                <button class="suffle"><i class="fa-solid fa-shuffle "></i></button> 
+                    
+            </div>
     
+            <input type="range" name="" id="progress" class="progress" value="0" step="1" min="0" max="100">
+
+            <audio class="audio" src=""></audio>
+        </div>
+
+        <ul class="music-list">
+        </ul>
     </div>
+   
+    <script>
+
+        const $ =document.querySelector.bind(document);
+        const $$ = document.querySelectorAll.bind(document);
+        const heading = $('.heading__music-name')
+        const cdThumb = $('.music-img')
+        const audio = $('.audio')
+        const playBtn = $('.play-btn')
+        const playBtnIcon = $('.play-btn-icon')
+        const progress = $('.progress')
+        const nextBtn =$('.next-btn')
+        const prevBtn =$('.back-btn')
+        
+
+        const app = {
+                isPlaying: false,
+                currentIndex: 0,
+                songs: [
+                {   
+                    name: 'Không Thể Say',
+                    singger: 'HIEUTHUHAI',
+                    path: './asset/music/song1.mp3',
+                    image: './asset/imgs/song1.jpg'
+                },
+                {   
+                    name: 'Tháng tư là lời nói dối của em',
+                    singger: 'Hà Anh Tuấn',
+                    path: './asset/music/song2.mp3',
+                    image: './asset/imgs/song2.webp'
+                },
+                {   
+                    name: 'Một bước yêu vạn dặm đau',
+                    singger: 'Mr.Siro',
+                    path: './asset/music/song3.mp3',
+                    image: './asset/imgs/song3.png'
+                },
+                {   
+                    name: 'Lan man',
+                    singger: 'Ronboogz',
+                    path: './asset/music/song4.mp3',
+                    image: './asset/imgs/song4.jpg'
+                },
+
+            ],
+                render: function() {
+                    const htmls = this.songs.map(song =>{
+                        return `<li class="music-item">
+                    <div class="music-item__container">
+                        <img src="${song.image}" alt="" class="music-item__container-img">
+                        <div class="music-item__container-info">
+                            <div class="music-item__container-info-name">${song.name}</div>
+                            <div class="music-item__container-info-desc">${song.singger}</div>
+                        </div>
+                        <div class="music-item__container-nav-icon">
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </div>  
+                    </div>
+                </li>`
+                    })
+
+                    $('.music-list').innerHTML = htmls.join('')
+                },
+                // dinh nghia cac thuoc tinh cho object
+                defineProperties: function() {
+                    Object.defineProperty(this,'currentSong',{
+                        get: function() {
+                            return this.songs[this.currentIndex]
+                        }
+                    })
+                },
+                loadCurrentSong: function() {
+                    heading.textContent = this.currentSong.name
+                    cdThumb.src = this.currentSong.image
+                    audio.src = this.currentSong.path   
+                },
+                handleEvents: function() {
+                    // quay cd
+                    const cdThumbAnimate = cdThumb.animate([
+                        {transform: 'rotate(360deg)'}
+                    ],{
+                        duration: 10000,
+                        iterations: Infinity,
+                    })
+                    cdThumbAnimate.pause()
+                    playBtn.onclick = function() {
+                        if(app.isPlaying) {
+                            app.isPlaying = false
+                            audio.pause();
+                            playBtnIcon.classList.remove('fa-pause');
+                            playBtnIcon.classList.add('fa-play');
+                            cdThumbAnimate.pause()
+                        }else{
+                            app.isPlaying = true
+                            audio.play();
+                            playBtnIcon.classList.remove('fa-play');
+                            playBtnIcon.classList.add('fa-pause');
+                            cdThumbAnimate.play()
+                        }
+                        
+                    }
+                    
+
+                    audio.ontimeupdate = function() {
+                        if(audio.duration){
+                            const progressPercent = audio.currentTime / audio.duration * 100;
+                            progress.value = progressPercent
+                        }
+                    }
+
+                    progress.oninput = function(e) {
+                        const seekTime = e.target.value/100*audio.duration
+                        audio.currentTime = seekTime
+                    }
+
+                    nextBtn.onclick = function() {
+                        app.nextSong()
+                        playBtn.click();    
+                    }
+
+                    prevBtn.onclick = function() {
+                        app.prevSong()
+                        playBtn.click()
+                    }
+                },
+                nextSong: function() {
+                    app.currentIndex ++
+                    if(app.currentIndex >= app.songs.length)
+                    {
+                        app.currentIndex = 0
+                    }
+                    app.loadCurrentSong()
+                },
+                prevSong: function() {
+                    app.currentIndex --
+                    if(app.currentIndex < 0)
+                    {
+                        app.currentIndex = app.songs.length-1
+                    }
+                    app.loadCurrentSong()
+                },
+                start: function () {
+                    this.defineProperties();
+                    
+
+                    this.loadCurrentSong()
+                    this.handleEvents();
+                    this.render();  
+                    
+                }
+
+    
+        }
+
+        app.start()
+        
+    </script>
 
    
     
