@@ -11,6 +11,13 @@
     background-color: #17a2b8 !important;
 }
 
+.item-active .icon-option,
+.item-active .music-item__container-info-desc,
+.item-active .music-item__container-info-name   {
+    color: #fff;
+}
+
+
 i{
     color: black;
 }
@@ -38,13 +45,6 @@ i{
     
 }
 
-.playing{
-
-
-}
-
-
-   
 
 .heading__status{
     color: #17a2b8;
@@ -192,9 +192,13 @@ i{
     margin: 12px auto;
     background-color: #fff;
     border-radius: 2px;
-    box-shadow: 0px 0px 10px 0px #17a2b8;
+   
     
     
+}
+
+.music-item:active{
+    opacity: 0.8;
 }
 
 .music-item__container-img{
